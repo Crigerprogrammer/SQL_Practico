@@ -33,3 +33,13 @@ Es el comando que usamos para elegir que se muestra
 - SELECT field AS alias; (Coloca un alias a la columna)
 - SELECT COUNT(id), SUM(quantity), AVG(age) (Cuenta todo, suma una columna y saca promedio)
 - SELECT MIN(date), MAX(quantity) (Saca el minimo y el maximo)
+
+**ESTRUCTURAS DE CONTROL CON SELECT**
+- SELECT IF(500<1000, "YES", "NO");
+- SELECT OrderID, Quantity,
+CASE
+    WHEN Quantity > 30 THEN "Over 30"
+    WHEN Quantity = 30 THEN "Equal 30"
+END AS QuantityText
+
+## Origin (FROM)
