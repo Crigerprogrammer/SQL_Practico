@@ -12,8 +12,6 @@ Luego Relational company creó el software Oracle en 1979.
 ## Álgebra relacional
 El álgebra relacional estudia basicamente las operaciones que se pueden realizar entre diversos conjuntos de datos.
 ⠀
-
-⠀
 No confundir las relaciones del álgebra relacional con las relaciones de una base de datos relacional.
 
 Las relaciones de una base de datos es cuando unes dos tablas.
@@ -27,3 +25,11 @@ Operadores unarios.- Requiere una relación o tabla para funcionar.
 ⠀
 - Selección (σ): Equivale al comando Where. Consiste en el filtrado de de tuplas.
 σ<Suscripción=Expert>(Tabla_Alumno)
+
+## Proyección (SELECT)
+Es el comando que usamos para elegir que se muestra
+**Ejemplo**
+- SELECT *; (Significa que muestra todas las columnas de la entidad)
+- SELECT field AS alias; (Coloca un alias a la columna)
+- SELECT COUNT(id), SUM(quantity), AVG(age) (Cuenta todo, suma una columna y saca promedio)
+- SELECT MIN(date), MAX(quantity) (Saca el minimo y el maximo)
