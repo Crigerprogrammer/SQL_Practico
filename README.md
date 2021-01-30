@@ -9,3 +9,21 @@ luego DB2 (1983)
 
 Luego Relational company creó el software Oracle en 1979.  
 
+## Álgebra relacional
+El álgebra relacional estudia basicamente las operaciones que se pueden realizar entre diversos conjuntos de datos.
+⠀
+
+⠀
+No confundir las relaciones del álgebra relacional con las relaciones de una base de datos relacional.
+
+Las relaciones de una base de datos es cuando unes dos tablas.
+Las relaciones en álgebra relacional se refiere a una tabla.
+- La diferencia es conceptual: Las tablas pueden tener tuplas repetidas pero en el álgebra relacional cada relación no tiene un cuerpo, no tiene un primer ni último row.
+⠀
+Tipos de operadores
+Operadores unarios.- Requiere una relación o tabla para funcionar.
+- Proyección (π): Equivale al comando Select. Saca un número de columnas o atributos sin necesidad de hacer una unión con una segunda tabla.
+π<Nombre, Apellido, Email>(Tabla_Alumno)
+⠀
+- Selección (σ): Equivale al comando Where. Consiste en el filtrado de de tuplas.
+σ<Suscripción=Expert>(Tabla_Alumno)
