@@ -59,3 +59,7 @@ END AS QuantityText
 **Indices**
 - Excelentes para búsquedas y ordenamientos
 - Cuidar para alta transaccionalidad.
+
+## Agregación (GROUP BY)
+
+## Limitantes (Limit)
