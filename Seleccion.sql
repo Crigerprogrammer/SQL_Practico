@@ -19,3 +19,14 @@ SELECT *
 FROM tabla_diaria
 WHERE cantidad BETWEEN 10
 AND 100;
+
+SELECT *
+FROM users
+WHERE name = "Israel"
+AND ( lastname = "Vasquez" OR lastname = "Lopez")
+
+SELECT *
+FROM users 
+WHERE name = "Israel"
+AND lastname = "Vasquez"
+OR lastname = "Lopez";
