@@ -30,3 +30,27 @@ FROM users
 WHERE name = "Israel"
 AND lastname = "Vasquez"
 OR lastname = "Lopez";
+
+SELECT *
+FROM users
+WHERE name LIKE "%Is";
+
+SELECT *
+FROM users
+WHERE name LIKE "Is_ael";
+
+SELECT * 
+FROM users
+WHERE name NOT LIKE "Is_ael";
+
+SELECT * 
+FROM users
+WHERE name IS NULL;
+
+SELECT * 
+FROM users
+WHERE name IS NOT NULL;
+
+SELECT *
+FROM users
+WHERE name IN ('Israel', 'Laura', 'Luis');
