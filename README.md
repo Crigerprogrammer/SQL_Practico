@@ -43,3 +43,5 @@ CASE
 END AS QuantityText
 
 ## Origin (FROM)
+
+## Productos cartesianos (Join)
