@@ -67,3 +67,19 @@ WHERE colegiatura = (
     ORDER BY colegiatura DESC
     LIMIT 1 OFFSET 1
 )
+
+-- 2da mitad de la tabla
+SELECT ROW_NUMBER() OVER() AS row_id, *
+FROM platzi.alumnos
+OFFSET(
+    SELECT COUNT(*)/2
+    FROM platzi.alumnos
+)
+
+-- Arrays
+SELECT *
+FROM (
+    SELECT ROW_NUMBER() OVER() AS row_id, *
+    FROM platzi.alumnos
+) AS alumnos_with_row_num
+WHERE row_id IN (1, 5, 10, 12, 15, 20);
