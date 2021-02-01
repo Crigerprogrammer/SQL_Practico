@@ -28,3 +28,42 @@ FROM(
     FROM platzi.alumnos
 ) AS alumnos_with_row_num
 WHERE row_id BETWEEN 1 AND 5;
+
+-- Colegiatura 2da más cara
+SELECT DISTINCT colegiatura 
+FROM platzi.alumnos AS a1
+WHERE 2 = (
+    SELECT COUNT(DISTINCT colegiatura)
+    FROM platzi.alumnos a2
+    WHERE a1.colegiatura = a2.colegiatura
+);
+
+-- Otra forma 2da más cara
+SELECT DISTINCT colegiatura, tutor_id
+FROM platzi.alumnos
+WHERE tutor_id = 20
+ORDER BY colegiatura DESC 
+LIMIT 1 OFFSET 1;
+
+-- 3era forma 2da colegiatura más cara con alumnos
+SELECT *
+FROM platzi.alumnos AS datos_alumnos
+INNER JOIN (
+    SELECT DISTINCT colegiatura
+    FROM platzi.alumnos
+    WHERE tutor_id = 20
+    ORDER BY colegiatura DESC 
+    LIMIT 1 OFFSET 1
+) AS segunda_mayor_colegiatura 
+ON datos_alumnos.colegiatura = segunda_mayor_colegiatura.colegiatura
+
+-- Otra forma
+SELECT *
+FROM platzi.alumnos AS datos_alumnos
+WHERE colegiatura = (
+    SELECT DISTINCT colegiatura
+    FROM platzi.alumnos
+    WHERE tutor_id = 20
+    ORDER BY colegiatura DESC
+    LIMIT 1 OFFSET 1
+)
