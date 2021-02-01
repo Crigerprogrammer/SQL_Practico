@@ -54,3 +54,8 @@ END AS QuantityText
 - INNER JOIN
 
 ## Selección WHERE
+
+## Ordenamiento (Order BY)
+**Indices**
+- Excelentes para búsquedas y ordenamientos
+- Cuidar para alta transaccionalidad.
