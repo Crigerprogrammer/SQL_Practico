@@ -121,3 +121,12 @@ WHERE (EXTRACT(YEAR FROM fecha_incorporacion)) = 2019;
 SELECT *
 FROM platzi.alumnos 
 WHERE (DATE_PART('YEAR', fecha_incorporacion)) = 2019;
+
+-- Con subquery
+SELECT *
+FROM (
+    SELECT *,
+        DATE_PART('YEAR'm fecha_incorporacion) AS anio_incorporacion
+    FROM platzi.alumnos 
+) AS alumnos_con_anio
+WHERE anio_incorporacion = 2019;
