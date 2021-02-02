@@ -126,7 +126,57 @@ WHERE (DATE_PART('YEAR', fecha_incorporacion)) = 2019;
 SELECT *
 FROM (
     SELECT *,
-        DATE_PART('YEAR'm fecha_incorporacion) AS anio_incorporacion
+        DATE_PART('YEAR', fecha_incorporacion) AS anio_incorporacion
     FROM platzi.alumnos 
 ) AS alumnos_con_anio
-WHERE anio_incorporacion = 2019;
+WHERE anio_incorporacion = 2019; 
+
+-- Double Trouble
+SELECT *
+FROM (
+    SELECT *,
+        DATE_PART('YEAR', fecha_incorporacion) AS anio_incorporacion,
+        DATE_PART('MONTH', fecha_incorporacion ) AS mes_incorporacion
+    FROM platzi.alumnos 
+) AS alumnos_con_anio
+WHERE anio_incorporacion = 2018
+    AND mes_incorporacion = 5;
+
+-- Encontrar duplicados
+SELECT (platzi.alumnos.nombre,
+        platzi.alumnos.apellido,
+        platzi.alumnos.email,
+        platzi.alumnos.colegiatura,
+        platzi.alumnos.fecha_incorporacion,
+        platzi.alumnos.carrera_id,
+        platzi.alumnos.tutor_id
+    )::text, COUNT(*)
+FROM platzi.alumnos 
+GROUP BY platzi.alumnos.nombre,
+        platzi.alumnos.apellido,
+        platzi.alumnos.email,
+        platzi.alumnos.colegiatura,
+        platzi.alumnos.fecha_incorporacion,
+        platzi.alumnos.carrera_id,
+        platzi.alumnos.tutor_id
+HAVING COUNT(*) > 1;
+
+-- Duplicados con windows function y subquery
+SELECT *
+FROM(
+    SELECT id,
+    ROW_NUMBER() OVER (
+        PARTITION BY 
+            nombre,
+            apellido,
+            email,
+            colegiatura,
+            fecha_incorporacion,
+            carrera_id,
+            tutor_id
+        ORDER BY id AS ASC
+    ) AS row ,
+    *
+    FROM platzi.alumnos
+) AS duplicados 
+WHERE duplicados.row > 1;
