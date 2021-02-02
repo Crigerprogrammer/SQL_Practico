@@ -105,3 +105,19 @@ SELECT DATE_PART('YEAR', fecha_incorporacion) AS anio_incorporacion,
     DATE_PART('MONTH', fecha_incorporacion) AS mes_incorporacion,
     DATE_PART('DAY', fecha_incorporacion) AS dia_incorporacion
 FROM platzi.alumnos;
+
+-- RETO extraer hora 
+SELECT DATE_PART('HOUR', fecha_incorporacion) AS hora_incorporacion,
+    DATE_PART('MINUTE', fecha_incorporacion) AS minuto_incorporacion,
+    DATE_PART('SECOND', fecha_incorporacion) AS segundo_incorporacion
+FROM platzi.alumnos;
+
+-- Extract todo de los que se incorporaron en el 2019
+SELECT *
+FROM platzi.alumnos
+WHERE (EXTRACT(YEAR FROM fecha_incorporacion)) = 2019;
+
+-- SELECT igual de 2019 pero otra forma
+SELECT *
+FROM platzi.alumnos 
+WHERE (DATE_PART('YEAR', fecha_incorporacion)) = 2019;
