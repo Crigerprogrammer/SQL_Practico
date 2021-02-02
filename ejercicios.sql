@@ -229,3 +229,25 @@ SELECT ISEMPTY (numrange(1,5));
 SELECT *
 FROM platzi.alumnos
 WHERE int4range(10,20) @> tutor_id;
+
+-- Buscar interseccion entre dos rangos
+SELECT numrange(
+    (SELECT MIN(tutor_id) FROM platzi.alumnos),
+    (SELECT MAX(tutor_id) FROM platzi.alumnos)
+) * numrange(
+    (SELECT MIN(carrera_id) FROM platzi.alumnos),
+    (SELECT MAX(carrera_id) FROM platzi.alumnos)
+);
+
+-- Maximo de una tabla
+SELECT fecha_incorporacion
+FROM platzi.alumnos 
+ORDER BY fecha_incorporacion DESC
+LIMIT 1;
+
+-- Fecha más reciente pero por grupo de carrera
+SELECT carrera_id, 
+MAX(fecha_incorporacion) 
+from platzi.alumnos 
+GROUP BY carrera_id
+ORDER BY carrera_id
