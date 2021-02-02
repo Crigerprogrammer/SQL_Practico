@@ -266,3 +266,29 @@ FROM platzi.alumnos AS a
 INNER JOIN platzi.alumnos AS t ON a.tutor_id = t.id
 GROUP BY tutor
 ORDER BY alumnos_por_tutor DESC;
+
+-- Extraer promedio de alumnos por tutor
+SELECT AVG(alumnos_por_tutor) AS promedio_alumnos_por_tutor
+FROM(
+SELECT CONCAT(t.nombre,' ', t.apellido) AS tutor,
+       COUNT(*) AS alumnos_por_tutor
+FROM platzi.alumnos AS a 
+INNER JOIN platzi.alumnos AS t ON a.tutor_id = t.id
+GROUP BY tutor
+) AS alumnos_tutor;
+
+-- Diferencias 
+SELECT carrera_id, COUNT(*) AS cuenta 
+FROM platzi.alumnos 
+GROUP BY carrera_id 
+ORDER BY cuenta DESC;
+
+SELECT a.nombre,
+       a.apellido,
+       a.carrera_id,
+       c.id,
+       c.carrera 
+FROM platzi.alumnos AS a 
+LEFT JOIN platzi.carreras AS c 
+ON a.carrera_id = c.id 
+WHERE c.id IS NULL
