@@ -180,3 +180,35 @@ FROM(
     FROM platzi.alumnos
 ) AS duplicados 
 WHERE duplicados.row > 1;
+
+-- RETO elimiar un duplicado
+DELETE FROM platzi.alumnos
+WHERE id IN(
+SELECT id
+FROM(
+    SELECT id,
+    ROW_NUMBER() OVER (
+        PARTITION BY 
+            nombre,
+            apellido,
+            email,
+            colegiatura,
+            fecha_incorporacion,
+            carrera_id,
+            tutor_id
+        ORDER BY id AS ASC
+    ) AS row 
+    FROM platzi.alumnos
+) AS duplicados 
+WHERE duplicados.row > 1;
+);
+
+-- RANGOS
+SELECT *
+FROM platzi.alumnos
+WHERE tutor_id IN (1,2,3,4);
+
+SELECT *
+FROM platzi.alumnos
+WHERE tutor_id BETWEEN 1 AND 10;
+
