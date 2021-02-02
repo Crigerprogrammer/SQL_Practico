@@ -251,3 +251,18 @@ MAX(fecha_incorporacion)
 from platzi.alumnos 
 GROUP BY carrera_id
 ORDER BY carrera_id
+
+-- RETO MIN id_tutores
+SELECT tutor_id,
+MIN(nombre)
+FROM platzi.alumnos 
+GROUP BY tutor_id
+ORDER BY tutor_id;
+
+-- Self JOIN
+SELECT CONCAT(t.nombre,' ', t.apellido) AS tutor,
+       COUNT(*) AS alumnos_por_tutor
+FROM platzi.alumnos AS a 
+INNER JOIN platzi.alumnos AS t ON a.tutor_id = t.id
+GROUP BY tutor
+ORDER BY alumnos_por_tutor DESC;
