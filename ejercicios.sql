@@ -359,3 +359,14 @@ SELECT *
 FROM generate_series('2020-09-01 00:00:00'::timestamp, 
                      '2020-09-04 12:00:00', '10 hours');
 
+-- JOIN con una tabla de rango
+SELECT a.id,
+       a.nombre,
+       a.apellido,
+       a.carrera_id,
+       s.a 
+FROM platzi.alumnos AS a 
+INNER JOIN generate_series(0,10) AS s(a)
+ON s.a = a.carrera_id
+ORDER BY a.carrera_id;
+
