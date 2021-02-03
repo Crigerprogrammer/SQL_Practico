@@ -92,3 +92,15 @@ Es una colección de múltiples bases de datos separadas físicamente que se com
 - Fragmentación
 - Replicación
 - Distribución
+**Fragmentación**
+- Horizontal
+- Vertical
+- Mixta
+**Replicación**
+- Completa
+- Parcial
+- Sin replicación
+**Distribución de los datos**
+- Centralizada
+- Particionada
+- Replicada
