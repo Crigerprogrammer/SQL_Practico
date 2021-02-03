@@ -63,3 +63,32 @@ END AS QuantityText
 ## Agregación (GROUP BY)
 
 ## Limitantes (Limit)
+
+### Base de Datos Distribuidas
+Es una colección de múltiples bases de datos separadas físicamente que se comunican mediante una red informática.
+**Ventajas**
+- Desarrollo Modular.
+- Incrementa la confiabilidad.
+- Mejora el redimiento
+- Mayor disponibilidad
+- Rapidez de respuesta.
+**Desventajas**
+- Manejo de seguridad
+- Complejidad de procesamiento
+- Integridad de datos más compleja
+- Costo
+**Homogéneas y heterogéneas**
+- Mismo OS
+- Sistema de base de datos
+- Modelos de datos
+**Arquitecturas**
+- Cliente - Servidor
+- Par a par (peer 2 peer)
+- Multi manejador de base de datos
+**Estrategias de diseño**
+- Top down
+- Bottom up
+**Almacenamiento distribuido**
+- Fragmentación
+- Replicación
+- Distribución
