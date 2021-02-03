@@ -325,4 +325,11 @@ ON a.carrera_id = c.id
 ORDER BY c.id DESC;
 
 
+-- Triangulado 
+SELECT lpad('sql', 15, '*');
+
+SELECT lpad('sql', id, '*')
+FROM platzi.alumnos 
+WHERE id < 10;
+
 
