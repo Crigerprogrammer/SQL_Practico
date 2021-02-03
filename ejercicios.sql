@@ -370,3 +370,11 @@ INNER JOIN generate_series(0,10) AS s(a)
 ON s.a = a.carrera_id
 ORDER BY a.carrera_id;
 
+-- Reto triangulo con generate series
+SELECT lpad('*', CAST(ordinality AS int), '*')
+FROM generate_series(10,2,-2) WITH ordinality;
+
+-- Expresiones regulares
+SELECT email 
+FROM platzi.alumnos 
+WHERE email *'[A-Z0-9._%+-]+@google[A-Z0-9,-]+\.[A-Z]{2,4}';
