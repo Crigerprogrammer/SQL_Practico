@@ -106,3 +106,10 @@ Es una colección de múltiples bases de datos separadas físicamente que se com
 - Replicada
 
 ## Queries Distribuidos
+
+## Sharding 
+Divide la data en un criterio por medio de servidores. 
+**Problemas**
+- Joins entre shards
+- Baja elasticidad
+- Reemplaza PK
