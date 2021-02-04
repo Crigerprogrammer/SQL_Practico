@@ -387,3 +387,21 @@ FROM platzi.alumnos
 SELECT *,
 RANK() OVER (PARTITION BY carrera_id ORDER BY colegiatura DESC)
 FROM platzi.alumnos;
+
+-- Otras window functions
+SELECT ROW_NUMBER() OVER(ORDER BY fecha_incorporacion) AS row_id, *
+FROM platzi.alumnos;
+
+-- Regresa la colegiatura mas grande
+SELECT FIRST_VALUE(colegiatura) OVER() AS row_id, *
+FROM platzi.alumnos;
+
+-- 
+SELECT FIRST_VALUE(colegiatura) OVER (PARTITION BY carrera_id)
+FROM platzi.alumnos;
+
+-- Rango
+SELECT *,
+RANK() OVER(PARTITION BY carrera_id ORDER BY colegiatura DESC) AS colegiatura_rank
+FROM platzi.alumnos
+ORDER BY carrera_id, colegiatura_rank;

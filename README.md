@@ -120,3 +120,5 @@ Realizan cálculos en algunas tuplas que se encuentran relacionadas con la tupla
 **¿Para que sirven?**
 Evitan el uso de self JOINS y reduce la complejidad alrededor de la analítica,
 agragaciones y uso de cursores.
+
+## Window Functions: Particiones y agragaciones
