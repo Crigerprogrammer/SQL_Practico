@@ -113,3 +113,7 @@ Divide la data en un criterio por medio de servidores.
 - Joins entre shards
 - Baja elasticidad
 - Reemplaza PK
+
+## Window Functions
+**¿Que es ?**
+Realizan cálculos en algunas tuplas que se encuentran relacionadas con la tupla actual
