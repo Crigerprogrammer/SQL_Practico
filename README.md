@@ -104,3 +104,5 @@ Es una colección de múltiples bases de datos separadas físicamente que se com
 - Centralizada
 - Particionada
 - Replicada
+
+## Queries Distribuidos
