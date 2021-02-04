@@ -378,3 +378,12 @@ FROM generate_series(10,2,-2) WITH ordinality;
 SELECT email 
 FROM platzi.alumnos 
 WHERE email *'[A-Z0-9._%+-]+@google[A-Z0-9,-]+\.[A-Z]{2,4}';
+
+-- WINDOW FUNCTION
+SELECT *,
+AVG(colegiatura) OVER (PARTITION BY carrera_id)
+FROM platzi.alumnos
+
+SELECT *,
+RANK() OVER (PARTITION BY carrera_id ORDER BY colegiatura DESC)
+FROM platzi.alumnos;
