@@ -117,3 +117,6 @@ Divide la data en un criterio por medio de servidores.
 ## Window Functions
 **¿Que es ?**
 Realizan cálculos en algunas tuplas que se encuentran relacionadas con la tupla actual
+**¿Para que sirven?**
+Evitan el uso de self JOINS y reduce la complejidad alrededor de la analítica,
+agragaciones y uso de cursores.
